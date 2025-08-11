@@ -24,8 +24,8 @@ jobs:
         run: npm ci
 
       - name: Build for GitHub Pages
-        env: |
-          NEXT_PUBLIC_BASE_PATH=/WindUI-Docs
+        env: 
+          NEXT_PUBLIC_BASE_PATH: /WindUI-Docs
         run: |
           npm run build
     
