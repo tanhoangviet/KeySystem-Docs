@@ -1,7 +1,7 @@
 import { createMDX } from 'fumadocs-mdx/next';
 
 const withMDX = createMDX();
-const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.NODE_ENV === 'production';
+const isGithubPages = process.env.NODE_ENV === 'production';
 const repo = 'WindUI-Docs';
 
 /** @type {import('next').NextConfig} */

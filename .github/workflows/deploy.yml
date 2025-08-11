@@ -24,11 +24,8 @@ jobs:
         run: npm ci
 
       - name: Build for GitHub Pages
-        env:
-          GITHUB_PAGES: "true"
         run: |
-          npm run build
-          touch out/.nojekyll
+          npm run deploy
     
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4

@@ -6,7 +6,7 @@
         "build": "next build",
         "dev": "next dev",
         "start": "next start",
-        "deploy": "GITHUB_PAGES=true npm run build && touch out/.nojekyll && gh-pages -d out",
+        "deploy": "gh-pages -d out",
         "postinstall": "fumadocs-mdx"
     },
     "dependencies": {
