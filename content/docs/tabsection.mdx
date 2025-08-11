@@ -1,0 +1,60 @@
+---
+title: Tab Section
+description: Creating Section for the Tabs and Editing it
+icon: TextSelect
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+
+
+<img 
+  alt="Banner" 
+  src="/banners/tabsection.png" 
+  className="rounded-lg" 
+/>
+
+
+## Creating Section for the Tabs
+
+```luau
+local Section = Window:Section({
+    Title = "Section for the tabs",
+    Icon = "bird",
+    Opened = true,
+})
+```
+
+Tab sections have two states: 
+1. Just a text (when there are no tabs), 
+2. a state where it can be opened/closed (when there are tabs inside)
+
+
+
+<hr/>
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            ## Section Options
+            
+            <TypeTable
+              type={{
+                Title:          { type: 'string',   required: true,  description: 'Title of the Section.',     default: "Section" },
+                Icon:           { type: 'string',   required: false, default: "nil",                           description: 'Lucide or rbxassetid icon or URL for the Tab.' },
+                IconThemed:     { type: 'boolean',  required: false, default: "false",                         description: 'Makes custom icon themed' }, 
+                Opened:         { type: 'boolean',  required: false, default: "false",                         description: 'Opened section' }, 
+              }}
+            />
+            
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

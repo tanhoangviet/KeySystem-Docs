@@ -1,0 +1,45 @@
+---
+title: Notification
+description: Creating Notification
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
+
+## Creating Notification
+```luau
+WindUI:Notify({
+    Title = "Notification Title",
+    Content = "Notification Content example!",
+    Duration = 3, -- 3 seconds
+    Icon = "bird",
+})
+```
+
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            ## Notification Options
+            
+            <TypeTable
+              type={{
+                Title:      { type: 'string',   required: true,  description: 'Title of the Notification.',       default: "Button" },
+                Content:    { type: 'string',  required: false,   description: "Content of the Notification.",   default: "nil" },
+                Duration:   { type: 'number',  required: false,   description: 'Duration of the Notification.',  default: "5" },
+                Icon:       { type: 'string',  required: false,   description: 'Icon of the Notification.',      default: "nil" },
+                IconThemed: { type: 'boolean', required: false,   description: 'Will color the icon to match the Theme, if you don\'t use Lucide icons but use other vector icons (rbxassetid or URL)',      default: "false" },
+              }}
+            />
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

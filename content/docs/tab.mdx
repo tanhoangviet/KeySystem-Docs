@@ -1,0 +1,60 @@
+---
+title: Tab
+description: Creating Tab
+icon: TableOfContents
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+
+<img 
+  alt="Banner" 
+  src="/banners/tab.png" 
+  className="rounded-lg" 
+/>
+
+
+## Creating Tab
+
+```luau
+local Tab = Window:Tab({
+    Title = "Tab Title",
+    Icon = "bird",
+    Locked = false,
+})
+```
+
+### Select Tab
+```luau
+Window:SelectTab(2) -- Number of Tab
+```
+
+<hr/>
+
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            
+            ## Tab Options
+            
+            <TypeTable
+              type={{
+                Title:      { type: 'string',  required: true,  default: "Tab",       description: 'Title of the Tab.' },
+                Icon:       { type: 'string',  required: false, default: "nil",       description: 'Lucide or rbxassetid icon or URL for the Tab.' },
+                IconThemed: { type: 'boolean', required: false, default: "false",     description: 'Makes custom icon themed' }, 
+                Locked:     { type: 'boolean', required: false, default: "false",     description: 'Locking the Tab.' },
+              }}
+            />
+            
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

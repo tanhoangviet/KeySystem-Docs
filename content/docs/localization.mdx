@@ -1,0 +1,79 @@
+---
+title: Localization
+description: Translate UI into different languages
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
+
+## Creating Localization example
+```luau
+-- Paste this before 'CreateWindow()'
+WindUI:Localization({ -- it automatically detects the user's language 
+    Enabled = true,
+    Prefix = "loc:",
+    DefaultLanguage = "en",
+    Translations = {
+        ["ru"] = {
+            ["WINDUI_EXAMPLE"] = "WindUI Пример",
+            ["WELCOME"] = "Добро пожаловать в WindUI!",
+            ["SETTINGS"] = "Настройки",
+            ["FEATURES"] = "Функционал",
+            ["LOGO"] = "rbxassetid://...", -- russian logo
+        },
+        ["en"] = {
+            ["WINDUI_EXAMPLE"] = "WindUI Example",
+            ["WELCOME"] = "Welcome to WindUI!",
+            ["SETTINGS"] = "Settings",
+            ["FEATURES"] = "Features",
+            ["LOGO"] = "rbxassetid://...", -- english logo
+        },
+        -- and more languages...
+    }
+})
+```
+
+### Set Language
+```luau
+-- removes automatic language detection
+WindUI:SetLanguage("en") -- english language
+```
+
+### Usage example
+```luau
+local Window = WindUI:CreateWindow({
+    Title = "loc:WINDUI_EXAMPLE", -- using with prefix 'loc:'
+    Icon = "loc:LOGO",
+    Author = "loc:WELCOME", -- too
+    Folder = "MyTestHub",
+    Theme = "Dark",
+})
+
+```
+
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            ## Localization Options
+            
+            <TypeTable
+              type={{
+                Enabled:         { type: 'boolean',  required: true,    description: 'Enabled Localizations',                         default: "false" },
+                Prefix:          { type: 'string',   required: false,   description: 'Prefix for the Localization',                   default: "loc:" },
+                DefaultLanguage: { type: 'string',   required: true,    description: 'Default Language if users language not found',  default: "en" },
+                Translations:    { type: 'table',    required: true,    description: 'Languages',                                     default: 'nil' },
+              }}
+            />
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

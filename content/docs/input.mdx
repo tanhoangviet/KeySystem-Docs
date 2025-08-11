@@ -1,0 +1,91 @@
+---
+title: Input
+description: Creating Input and Editing it
+icon: TextCursorInput
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Creating Input 
+
+```luau
+local Input = Tab:Input({
+    Title = "Input",
+    Desc = "Input Description",
+    Value = "Default value",
+    InputIcon = "bird",
+    Type = "Input", -- or "Textarea"
+    Placeholder = "Enter text...",
+    Callback = function(input) 
+        print("text entered: " .. input)
+    end
+})
+```
+
+### Set Title
+    ```luau
+    Input:SetTitle("Title Example")
+    ```
+
+### Set Description
+    ```luau
+    Input:SetDesc("Description Example")
+    ```
+    
+### Set Input value
+    ```luau
+    Input:Set("New value")
+    ```
+    
+### Set Input Placeholder
+    ```luau
+    Input:SetPlaceholder("New Placeholder")
+    ```
+
+### Lock Element
+    ```luau
+    Input:Lock()
+    ```
+
+### Unlock Element
+    ```luau
+    Input:Unlock()
+    ```
+
+### Destroy Element
+    ```luau
+    Input:Destroy()
+    ```
+    
+<hr/>
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            
+            ## Input Options
+            
+            <TypeTable
+              type={{
+                Title:         { type: 'string',   required: true,  description: 'Title of the Input.',                             default: "Input" },
+                Desc:          { type: 'string',   required: false, description: 'Description of the Input.',                       default: "nil" },
+                Value:         { type: 'string',   required: false, description: 'Default value of the Input',                      default: "nil" },
+                Placeholder:   { type: 'string',   required: true,  description: "Placeholder Text of the Input",                   default: "nil" },
+                Type:          { type: 'string',   required: false, description: "Type of input (`Textarea` or `Input`)",           default: "Input" },
+                InputIcon:     { type: 'string',   required: false, description: "Lucide, rbxassetid, or URL icon for the Input",   default: "nil" },
+                Locked:        { type: 'boolean',  required: false, description: 'Locks the Element',                               default: "false" },
+                Callback:      { type: 'function', required: false, description: 'Callback of the Input',                           default: "nil" },
+              }}
+            />
+            
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

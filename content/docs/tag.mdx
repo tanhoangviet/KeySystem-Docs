@@ -1,0 +1,43 @@
+---
+title: Tag
+description: Creating Tag
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
+
+## Creating Tag
+```luau
+Window:Tag({
+    Title = "v1.6.4",
+    Color = Color3.fromHex("#30ff6a")
+})
+```
+
+https://create.roblox.com/docs/reference/engine/datatypes/Color3
+
+
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            ## Tag Options
+            
+            <TypeTable
+              type={{
+                Title: { type: 'string',  required: true,   description: 'Title of the Tag.',  default: "Tag" },
+                Color: { type: 'Color3',  required: false,  description: 'Tag Color.',         default: 'Color3.fromHex("#315dff")' },
+              }}
+            />
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

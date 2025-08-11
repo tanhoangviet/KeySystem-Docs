@@ -1,0 +1,51 @@
+---
+title: Code
+description: Creating Code and Editing it
+icon: Terminal
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+
+
+## Creating Code 
+
+```lua
+local Code = Tab:Code({
+    Title = "Code",
+    Code = [[print("Hello World!")]]
+})
+```
+
+### Set Code
+    ```lua
+    Code:SetCode([[print("New code!")]])
+    ```
+
+<hr/>
+
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            ## Code Options
+            
+            <TypeTable
+              type={{
+                Title:  { type: 'string',   required: true,  description: 'Title of the Code.',  default: "Code" },
+                Code:   { type: 'string',   required: true,  description: 'Code.',               default: "nil" },
+              }}
+            />
+            
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

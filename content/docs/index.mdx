@@ -1,0 +1,35 @@
+---
+title: About WindUI
+icon: Album
+---
+
+import { Sparkles, Github, LayoutGrid, Settings, Key, Album, TriangleAlert } from 'lucide-react'
+import Tag from '@/components/tag'
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+
+<img 
+  alt="Banner" 
+  src="/banners/thumbnail2.png" 
+  className="rounded-lg" 
+/>
+
+## Why choose WindUI?
+
+<div className="flex flex-row items-start w-auto gap-2 w-full flex-wrap">
+    <Tag className="bg-[hsl(138,100%,59%)] text-[hsl(138,100%,5%)]"><Sparkles className="w-4 h-4" /> Modern Design </Tag>
+  
+    <Tag className="bg-[hsl(83,100%,59%)] text-[hsl(83,100%,5%)]"><Settings className="w-4 h-4" /> Customizable </Tag>
+  
+    <Tag className="bg-[hsl(45,100%,59%)] text-[hsl(45,100%,5%)]"><Github className="w-4 h-4" /> Open Source </Tag>
+  
+    <Tag className="bg-[hsl(187,100%,59%)] text-[hsl(327,100%,5%)]"><LayoutGrid className="w-4 h-4" /> Many Elements </Tag>
+  
+    <Tag className="bg-[hsl(227,100%,59%)] text-[hsl(227,100%,99%)]"><Key className="w-4 h-4" /> Key System </Tag>
+</div>
+
+<Alert variant="default" className="mt-10 gap-2 border bg-[hsl(47,100%,10%)] border-[hsl(47,100%,35%)] text-[hsl(47,100%,90%)] rounded-xl">
+    <TriangleAlert />
+    <AlertTitle>WindUI is currently in Beta</AlertTitle>
+    <AlertDescription className="text-[hsl(47,100%,90%)] opacity-70">This project is still under active development. Bugs, issues, and unstable features may occur. We’re constantly working on improvements, so please be patient and report any problems you encounter.</AlertDescription>
+</Alert>

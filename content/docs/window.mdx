@@ -1,0 +1,307 @@
+---
+title: Window
+description: Creating Window and Editing it
+icon: AppWindow
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
+<img 
+  alt="Banner" 
+  src="/banners/window.png" 
+  className="rounded-lg" 
+/>
+
+
+## Creating Window
+
+### Full example
+```luau
+local Window = WindUI:CreateWindow({
+    Title = "UI Title",
+    Icon = "door-open",
+    Author = "Example UI",
+    Folder = "MyTestHub",
+    Size = UDim2.fromOffset(580, 460),
+    Transparent = true,
+    Theme = "Dark",
+    Resizable = true,
+    SideBarWidth = 200,
+    Background = "", -- rbxassetid or video 
+    BackgroundImageTransparency = 0.42,
+    HideSearchBar = true,
+    ScrollBarEnabled = false,
+    User = {
+        Enabled = true,
+        Anonymous = true,
+        Callback = function()
+            print("clicked")
+        end,
+    },
+    KeySystem = { -- <- ↓ !!!!! remove this all, if you dont need the key system
+        Key = { "1234", "5678" },
+        Note = "Example Key System.",
+        Thumbnail = {
+            Image = "rbxassetid://",
+            Title = "Thumbnail",
+        },
+        URL = "https://github.com/Footagesus/WindUI",
+        SaveKey = true,
+        -- API = {} ← Services
+    },
+})
+```
+
+### Short example (no KeySystem, no background)
+```luau
+local Window = WindUI:CreateWindow({
+    Title = "My Super script | Test Hub",
+    Icon = "door-open",
+    Author = "Example UI",
+    Folder = "MyTestHub",
+})
+```
+
+
+<Accordion type="single" collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>Key system with your services</AccordionTrigger>
+        <AccordionContent>
+            At the moment, there are only [PlatoBoost](https://platoboost.com) and [Panda Development](https://pandadevelopment.net/). More services will be soon.
+            ```luau
+            local Window = WindUI:CreateWindow({
+                -- ...
+                
+                KeySystem = {
+                    -- Thumbnail = { ... },
+                    Note = "Example Key System. With platoboost, etc.",
+                    API = {
+                        { -- PlatoBoost
+                            -- Here you can write your title, description, and icon.
+                            -- Title = "Platoboost", -- optional 
+                            -- Desc = "Click to copy.", -- optional
+                            -- Icon = "rbxassetid://", -- optional
+                            
+                            Type = "platoboost", -- type
+                            ServiceId = 1234, -- service id
+                            Secret = "platoboost-secret", -- platoboost secret
+                        },
+                        { -- Panda development
+                            Type = "pandadevelopment", -- type
+                            ServiceId = "myServiceId", -- service id
+                        },
+                    },
+                },
+            })
+            ```
+            
+            ---
+            
+            ## Add your service.
+            You can also add your own services if you can't wait for the new update.
+            ```luau
+            --              ↓ Change this to your service (like `luarmor`, `platoboost`, `keyguardian`)
+            WindUI.Services.mysuperservicetogetkey = {
+                Name = "My Super Service",
+                Icon = "droplet", -- lucide or rbxassetid or raw link to img
+                
+                Args = { "ServiceId" }, --       <- \
+                --                                   |
+                New = function(ServiceId) -- <------ | Args!!!!!!!!!!!!
+                    function validateKey(key) -- <--- this too important!!!
+                        -- your function to validate key
+                        -- see examples at src/utils/
+                        
+                        if not key then
+                            return false, "Key is invalid!" 
+                            
+                        end
+                        
+                        return true, "Key is valid!" 
+                    end
+                    
+                    function copyLink()
+                        return setclipboard("link to key system service.")
+                    end
+                    
+                    return {
+                        --↓↓ do not change this!!
+                        Verify = validateKey, -- <-- important!!!
+                        Copy = copyLink -- <-- important!!!
+                    }
+                end
+            }
+            ```
+            
+            ### Use your service.
+            Now your can use your service.
+            ```luau
+            local Window = WindUI:CreateWindow({
+                -- ...
+                
+                KeySystem = {
+                    Note = "Example Key System. With your custom service.",
+                    API = {
+                        { -- custom service
+                            Type = "mysuperservicetogetkey", -- type
+                            ServiceId = 1234", -- service id
+                        },
+                    },
+                },
+            })
+            ```
+            
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+        <AccordionTrigger>Setting Window</AccordionTrigger>
+        <AccordionContent>
+            ### Set Background Image
+                ```luau
+                Window:SetBackgroundImage("rbxassetid://id-here")
+                ```
+                
+            ### Set Background Image Transparency
+                ```luau
+                Window:SetBackgroundImageTransparency(value: number) -- from 0  to 1
+                ```
+                
+            ### Set Toggle Key
+                ```luau
+                Window:SetToggleKey(Enum.KeyCode.H)
+                ```
+                
+            ### Set Transparency
+                ```luau
+                Window:ToggleTransparency(true)
+                ```
+                
+            ### Set Resizable
+                ```luau
+                Window:IsResizable(false)
+                ```
+                
+            
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-3">
+        <AccordionTrigger>Edit 'OpenButton' </AccordionTrigger>
+        <AccordionContent>
+            
+            <img 
+              alt="Banner" 
+              src="/banners/openbutton.png" 
+              className="rounded-lg" 
+            />
+
+            ```luau
+            Window:EditOpenButton({
+                Title = "Open Example UI",
+                Icon = "monitor",
+                CornerRadius = UDim.new(0,16),
+                StrokeThickness = 2,
+                Color = ColorSequence.new( -- gradient
+                    Color3.fromHex("FF0F7B"), 
+                    Color3.fromHex("F89B29")
+                ),
+                OnlyMobile = false,
+                Enabled = true,
+                Draggable = true,
+            })
+            ```
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-4">
+        <AccordionTrigger>Edit Topbar Buttons</AccordionTrigger>
+        <AccordionContent>
+            ### Disable Topbar Buttons
+            ```luau
+            Window:DisableTopbarButtons({
+                "Close", 
+                "Minimize", 
+                "Fullscreen",
+            })
+            ```
+            
+            ### Create Custom Topbar Buttons
+            ```luau
+            --                        ↓ Special name     ↓ Icon     ↓ Callback                         ↓ Order
+            Window:CreateTopbarButton("MyCustomButton1", "bird",    function() print("clicked!") end,  990)
+            ```
+            
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
+<hr/>
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            
+            ## Window Options
+            
+            <TypeTable
+              type={{
+                Title:                        { type: 'string',  required: true,  description: 'Title of the window.',                                 default: "UI Library" },
+                Icon:                         { type: 'string',  required: false, description: 'Lucide, rbxassetid, or URL icon for the window.',      default: "nil" },
+                IconThemed:                   { type: 'boolean', required: false, description: 'Makes custom icon themed',                             default: "false" },
+                Author:                       { type: 'string',  required: false, description: 'Name of the UI author.',                               default: "nil" },
+                Folder:                       { type: 'string',  required: true,  description: 'Folder name for saving data (like keys, URL images).', default: "nil" },
+                Size:                         { type: 'UDim2',   required: false, description: 'Custom size for the window.',                          default: "UDim2.new(0,580,0,460)" },
+                Transparent:                  { type: 'boolean', required: false, description: 'Whether the window background is transparent.',        default: "false" },
+                Theme:                        { type: 'string',  required: false, description: 'Theme style (e.g., Dark, Light).',                     default: "Dark" },
+                Resizable:                    { type: 'boolean', required: false, description: 'Can or cannot resize ui',                              default: "true" },
+                SideBarWidth:                 { type: 'number',  required: false, description: 'Width of the sidebar.',                                default: 200 },
+                Background:                   { type: 'string',  required: false, description: 'Background image ID.',                                 default: "nil" },
+                BackgroundImageTransparency:  { type: 'number',  required: false, description: 'Changes Background Image Transparency',                default: "0" },
+                HideSearchBar:                { type: 'boolean', required: false, description: 'Hides Searchbar',                                      default: "false" },
+                ScrollBarEnabled:             { type: 'boolean', required: false, description: 'Enable ScrollBar',                                     default: "false" },
+                User:                         { type: 'table',   required: false, description: 'Settings related to the user system.',                 default: "{}" },
+                KeySystem:                    { type: 'table',   required: false, description: 'Settings for key authentication system.',              default: "{}" },
+              }}
+            />
+            
+            ## User Options
+            
+            <TypeTable
+              type={{
+                Enabled:   { type: 'boolean', required: true,  description: 'Enable the user system.',                default: "false" },
+                Anonymous: { type: 'boolean', required: false, description: 'Hide your nickname and avatar.',         default: "false" },
+                Callback:  { type: 'function',required: false, description: 'Function executed on user interaction.', default: "nil" },
+              }}
+            />
+            
+            ## KeySystem Options
+            
+            <TypeTable
+              type={{
+                Key:       { type: 'table',   required: true,  description: 'List of valid keys.',                   default: "{}" },
+                Note:      { type: 'string',  required: false, description: 'Additional note or instructions.',      default: "nil" },
+                Thumbnail: { type: 'table',   required: false, description: 'Thumbnail image and title.',            default: "{}" },
+                URL:       { type: 'string',  required: false, description: 'URL to link for key system.',           default: "nil" },
+                SaveKey:   { type: 'boolean', required: false, description: 'Save the entered key locally.',         default: "false" },
+                API:       { type: 'table',   required: false, description: 'Connect with your key system services', default: "nil" },
+              }}
+            />
+            
+            ## Thumbnail Options (inside KeySystem)
+            
+            <TypeTable
+              type={{
+                Image: { type: 'string', required: true,  description: 'Thumbnail image ID.',         default: "nil" },
+                Title: { type: 'string', required: false, description: 'Title shown with thumbnail.', default: "nil" },
+              }}
+            />
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>

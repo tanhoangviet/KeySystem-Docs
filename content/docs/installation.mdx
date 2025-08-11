@@ -1,0 +1,58 @@
+---
+title: Installation
+description: Install WindUI and Edit it
+icon: Download
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<Steps>
+
+<Step>
+### Clone Repository
+First, clone the [WindUI](https://github.com/Footagesus/WindUI/) repository from GitHub to your local machine.
+```bash
+git clone https://github.com/Footagesus/WindUI.git
+```
+This command will create a copy of the WindUI project in your working directory, allowing you to modify and customize it as needed.
+</Step>
+
+<Step>
+### Install Required Tools
+Make sure you have:
+- Node Package Manager (npm)
+- Lua
+- [darklua](https://darklua.com/)
+
+</Step>
+
+<Step>
+### Bundle WindUI
+Once everything is set up, you can bundle WindUI:
+
+- For development, run:
+    ```bash
+    npm run dev
+    ```
+
+- For production build, run:
+    ```bash
+    npm run build
+    ```
+
+- For development live-build, run:
+    ```bash
+    npm run live-build
+    ```
+    
+    This will start a local build server at http://localhost:8642.
+    It automatically build your changes and serves a ready-to-use development bundle, so you can instantly test it in Roblox without manual rebuilding.
+    
+    Example usage in Roblox:
+    ```luau
+    loadstring(game:HttpGet("http://localhost:8642/dist/main.lua"))()
+    ```
+
+</Step>
+
+</Steps>
