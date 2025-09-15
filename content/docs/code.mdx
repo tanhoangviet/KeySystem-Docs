@@ -22,6 +22,18 @@ local Code = Tab:Code({
     Code:SetCode([[print("New code!")]])
     ```
 
+### Destroy Code
+    ```lua
+    Code:Destroy()
+    ```
+
+### `:OnCopy()`
+    ```lua
+    Code:OnCopy(function()
+        print("Code '" .. Code.Title .. '" Copied!")
+    end)
+    ```
+
 <hr/>
 
 

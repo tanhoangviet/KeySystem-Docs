@@ -16,7 +16,7 @@ const Tag = ({
             className={`
                 flex items-center justify-center gap-1.5
                 px-3 py-2 rounded-full 
-                text-sm font-medium leading-none
+                text-sm font-semibold leading-none
                 transition-all duration-200
                 ${className}
               `}

@@ -49,6 +49,8 @@ local Dialog = Window:Dialog({
 <TypeTable
   type={{
     Title:       { type: 'string',  required: true,  description: 'Title text of the dialog.',                        default: "Dialog" },
+    Icon:        { type: 'string',  required: false, description: 'Dialog Icon',                                      default: "nil" },
+    IconThemed:  { type: 'boolean', required: false, description: 'Makes custom icon themed',                         default: "false" },
     Content:     { type: 'string',  required: true,  description: 'Main description inside the dialog.',              default: "nil" },
     Buttons:     { type: 'table',   required: true,  description: 'List of buttons with their titles and callbacks.', default: "{}" },
   }}

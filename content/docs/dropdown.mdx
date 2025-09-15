@@ -93,14 +93,15 @@ import {
             
             <TypeTable
               type={{
-                Title:         { type: 'string',                        required: true,  description: 'Title of the Dropdown.',            default: "Dropdown" },
-                Desc:          { type: 'string',                        required: false, description: 'Description of the Dropdown.',      default: "nil" },
-                Value:         { type: 'string or table (for multi)',   required: true,  description: 'Value of the Dropdown',             default: "nil" },
-                Values:        { type: 'table',                         required: true,  description: "Values to select in the Dropdown",  default: "{}" },
-                AllowNone:     { type: 'boolean',                       required: false, description: 'Allow None selected',               default: "false" },
-                Multi:         { type: 'boolean',                       required: false, description: 'Select multiple values',            default: "false" },
-                Locked:        { type: 'boolean',                       required: false, description: 'Locks the Element',                 default: "false" },
-                Callback:      { type: 'function',                      required: false, description: 'Callback of the Dropdown',          default: "nil" },
+                Title:            { type: 'string',                        required: true,  description: 'Title of the Dropdown.',            default: "Dropdown" },
+                Desc:             { type: 'string',                        required: false, description: 'Description of the Dropdown.',      default: "nil" },
+                Value:            { type: 'string or table (for multi)',   required: true,  description: 'Value of the Dropdown',             default: "nil" },
+                Values:           { type: 'table',                         required: true,  description: "Values to select in the Dropdown",  default: "{}" },
+                AllowNone:        { type: 'boolean',                       required: false, description: 'Allow None selected',               default: "false" },
+                SearchBarEnabled: { type: 'boolean',                       required: false, description: 'Enable Search',                     default: "false" },
+                Multi:            { type: 'boolean',                       required: false, description: 'Select multiple values',            default: "false" },
+                Locked:           { type: 'boolean',                       required: false, description: 'Locks the Element',                 default: "false" },
+                Callback:         { type: 'function',                      required: false, description: 'Callback of the Dropdown',          default: "nil" },
               }}
             />
             

@@ -1,0 +1,127 @@
+---
+title: FAQ
+description: Frequently Asked Questions
+icon: BadgeQuestionMark
+---
+
+import { Telescope } from 'lucide-react';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+
+## Answers to all questions.
+
+<hr/>
+
+##### Want to ask a question?
+<br/>
+<Link href="https://discord.gg/Q6HkNG4vwP"><Button size="sm"> <Telescope className="w-4"/> Visit our Discord server! </Button></Link>
+
+<hr/>
+
+<Accordion type="single" collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>What is WindUI?</AccordionTrigger>
+        <AccordionContent>
+            <span className="flex flex-col items-start gap-3.5">
+                <span>WindUI is a stylish, open-source UI (User Interface) library specifically designed for Roblox Script Hubs.</span>
+                <span>Developed by `Footagesus`   (`.ftgs`, `Footages`). </span>
+                <span>It aims to provide developers with a modern, customizable, and easy-to-use toolkit for creating visually appealing interfaces within Roblox. </span>
+                <span>The project is primarily written in Lua (Luau), the scripting language used in Roblox. </span>
+            </span>
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+        <AccordionTrigger>How to lock the elements?</AccordionTrigger>
+        <AccordionContent>
+            You can lock Element with `Locked`
+            
+            Example with [Button](/docs/button):
+            ```luau
+            local MySuperButton = Tab:Button({
+                Title = "Button",
+                Locked = true, -- lock the element
+                Callback = function() -- callback will not work. element is locked.
+                    print("clicked")
+                end
+            })
+            ```
+            
+            __All elements with callback have a `Locked` thing__
+            <br/>
+            Also you can lock the element at any time:
+            ```luau
+            MySuperButton:Lock()
+            ```
+            
+            or unlock:
+            ```luau
+            MySuperButton:Unlock()
+            ```
+            
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-3">
+        <AccordionTrigger>How to colorize custom icons?</AccordionTrigger>
+        <AccordionContent>
+            if you use Nebula icons, or your custom vector* icons. 
+            <br/>
+            Usually WindUI doesn't colorize custom icons to match the theme. 
+            <br/>
+            But you can do it with `IconThemed`
+            
+            `IconThemed` is available in:
+            - [Window](/docs/window)
+            - [Tab](/docs/tab)
+            - [Tab Section](/docs/tabsection)
+            - [Dialog](/docs/dialog)
+            - [Popup](/docs/popup)
+            - [Notification](/docs/notification)
+            - [Paragraph](/docs/paragraph)
+            
+            For example:
+            ```luau tab="Window"
+            local Window = WindUI:CreateWindow({
+                -- ...
+                
+                Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
+                IconThemed = true                                       -- [!code focus]
+            })
+            ```
+            
+            ```luau tab="Tab"
+            local Tab = Window:Tab({
+                -- ...
+                
+                Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
+                IconThemed = true                                       -- [!code focus]
+            })
+            ```
+            
+            ```luau tab="Popup"
+            local Popup = WindUI:Popup({
+                -- ...
+                
+                Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
+                IconThemed = true                                       -- [!code focus]
+            })
+            
+            ```
+            
+            and others.
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
+
+<br/>
+<br/>
+_More coming soon_

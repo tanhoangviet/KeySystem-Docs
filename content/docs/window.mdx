@@ -24,16 +24,18 @@ import Banner from '@/components/banner'
 
 ## Creating Window
 
-### Full example
-```luau
+### Full & Short example
+```luau tab="Full example"
 local Window = WindUI:CreateWindow({
-    Title = "My Super Hub ",
-    Icon = "door-open",
+    Title = "My Super Hub",
+    Icon = "door-open", -- lucide icon
     Author = "by .ftgs and .ftgs",
     Folder = "MySuperHub",
     
     -- ↓ This all is Optional. You can remove it.
     Size = UDim2.fromOffset(580, 460),
+    MinSize = Vector2.new(560, 350),
+    MaxSize = Vector2.new(850, 560),
     Transparent = true,
     Theme = "Dark",
     Resizable = true,
@@ -59,7 +61,7 @@ local Window = WindUI:CreateWindow({
         end,
     },
     
-    -- !  ↓  remove this all, 
+    --       remove this all, 
     -- !  ↓  if you DON'T need the key system
     KeySystem = { 
         -- ↓ Optional. You can remove it.
@@ -85,13 +87,11 @@ local Window = WindUI:CreateWindow({
 })
 ```
 
-### Short example (no KeySystem, no background)
-```luau
+```luau tab="Short example"
 local Window = WindUI:CreateWindow({
-    Title = "My Super script | Test Hub",
-    Icon = "door-open",
-    Author = "Example UI",
-    Folder = "MyTestHub",
+    Title = "My Super Hub",
+    Icon = "door-open", -- lucide icon. optional
+    Author = "by .ftgs and .ftgs", -- optional
 })
 ```
 
@@ -100,31 +100,86 @@ local Window = WindUI:CreateWindow({
     <AccordionItem value="item-1">
         <AccordionTrigger>Key system with your services</AccordionTrigger>
         <AccordionContent>
-            At the moment, there are only [PlatoBoost](https://platoboost.com) and [Panda Development](https://pandadevelopment.net/). More services will be soon.
-            ```luau
+            At the moment, there are only:
+            - [PlatoBoost](https://platoboost.com)
+            - [Panda Development](https://pandadevelopment.net/)
+            - [Luarmor](https://luarmor.net/)
+            
+            More services will be soon.
+            
+            ```luau tab="Example"
             local Window = WindUI:CreateWindow({
                 -- ...
                 
-                KeySystem = {
-                    -- Thumbnail = { ... },
-                    Note = "Example Key System. With platoboost, etc.",
-                    API = {
-                        { -- PlatoBoost
-                            -- Here you can write your title, description, and icon.
-                            -- Title = "Platoboost", -- optional 
-                            -- Desc = "Click to copy.", -- optional
-                            -- Icon = "rbxassetid://", -- optional
+                KeySystem = {                                                               -- [!code focus]
+                    Note = "Example Key System. With platoboost, etc.",                     -- [!code focus]
+                    API = {                                                                 -- [!code focus]
+                        { -- PlatoBoost                                                        [!code focus]
+                            --[[ Here you can write your title, description, and icon --]]  -- [!code focus]
+                            Title = "Platoboost",-- optional . you can remove it               [!code focus]
+                            Desc = "Click to copy.", -- optional . you can remove it           [!code focus]
+                            Icon = "rbxassetid://", -- optional . you can remove it            [!code focus]
                             
-                            Type = "platoboost", -- type
-                            ServiceId = 1234, -- service id
-                            Secret = "platoboost-secret", -- platoboost secret
-                        },
-                        { -- Panda development
-                            Type = "pandadevelopment", -- type
-                            ServiceId = "myServiceId", -- service id
-                        },
-                    },
-                },
+                            Type = "platoboost", -- type                                       [!code focus]
+                            ServiceId = 1234, -- service id                                    [!code focus]
+                            Secret = "platoboost-secret", -- platoboost secret                 [!code focus]
+                        },                                                                  -- [!code focus]
+                        { -- Panda development                                                 [!code focus]
+                            Type = "pandadevelopment", -- type                                 [!code focus]
+                            ServiceId = "myServiceId", -- service id                           [!code focus]
+                        },                                                                  -- [!code focus]
+                    },                                                                      -- [!code focus]
+                },                                                                          -- [!code focus]
+            })
+            ```
+            
+            ```luau tab="Platoboost"
+            local Window = WindUI:CreateWindow({
+                -- ...
+                
+                KeySystem = {                                                   -- [!code focus]
+                    Note = "Example Key System. With platoboost.",              -- [!code focus]
+                    API = {                                                     -- [!code focus]
+                        { -- PlatoBoost                                            [!code focus]
+                            Type = "platoboost",                                -- [!code focus]
+                            ServiceId = 1234, -- service id                        [!code focus]
+                            Secret = "platoboost-secret", -- platoboost secret     [!code focus]
+                        },                                                      -- [!code focus]
+                    },                                                          -- [!code focus]
+                },                                                              -- [!code focus]
+            })
+            ```
+            
+            ```luau tab="Panda development"
+            local Window = WindUI:CreateWindow({
+                -- ...
+                
+                KeySystem = {                                                   -- [!code focus]
+                    Note = "Example Key System. With pandadevelopment.",        -- [!code focus]
+                    API = {                                                     -- [!code focus]
+                        { -- pandadevelopment                                      [!code focus]
+                            Type = "pandadevelopment", -- type                     [!code focus]
+                            ServiceId = "myServiceId", -- service id               [!code focus]
+                        },                                                      -- [!code focus]
+                    },                                                          -- [!code focus]
+                },                                                              -- [!code focus]
+            })
+            ```
+            
+            ```luau tab="Luarmor"
+            local Window = WindUI:CreateWindow({
+                -- ...
+                
+                KeySystem = {                                                   -- [!code focus]
+                    Note = "Example Key System. With luarmor.",                 -- [!code focus]
+                    API = {                                                     -- [!code focus]
+                        { -- luarmor                                               [!code focus]
+                            Type = "luarmor", -- type                              [!code focus]
+                            ScriptId = 1234, -- script id                          [!code focus]
+                            Discord = "Discord URL", -- DISCORD server link        [!code focus]
+                        },                                                      -- [!code focus]
+                    },                                                          -- [!code focus]
+                },                                                              -- [!code focus]
             })
             ```
             
@@ -263,6 +318,110 @@ local Window = WindUI:CreateWindow({
             
         </AccordionContent>
     </AccordionItem>
+    <AccordionItem value="item-5">
+        <AccordionTrigger>Configure User Icon</AccordionTrigger>
+        <AccordionContent>
+            ### Enable 
+            ```luau
+            Window.Icon:Enable()
+            ```
+            
+            ### Disable 
+            ```luau
+            Window.Icon:Disable()
+            ```
+            
+            ### Set Anonymous
+            ```luau
+            Window.Icon:SetAnonymous(true) -- true or false
+            ```
+            
+            
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-6">
+        <AccordionTrigger>Other</AccordionTrigger>
+        <AccordionContent>
+            ## Actions
+            
+            ### Open Window
+            ```luau
+            Window:Open()
+            ```
+            
+            ### Close Window
+            ```luau
+            Window:Close()
+            ```
+            
+            ### Toggle Window (open or close)
+            ```luau
+            Window:Toggle()
+            ```
+            
+            <hr/>
+            
+            ## Triggers
+            
+            ### `:OnClose()`
+            ```luau
+            Window:OnClose(function()
+                print("Window Closed")
+            end)
+            ```
+            
+            ### `:OnOpen()`
+            ```luau
+            Window:OnOpen(function()
+                print("Window Opened")
+            end)
+            ```
+            
+            ### `:OnDestroy()`
+            ```luau
+            Window:OnDestroy(function()
+                print("Window Destroyed")
+            end)
+            ```
+            <hr/>
+            
+            ## Elements
+            
+            ### Unlock All Elements
+            ```luau
+            Window:UnlockAll()
+            ```
+            
+            ### Lock All Elements
+            ```luau
+            Window:LockAll()
+            ```
+            
+            ### Get Locked Elements
+            ```luau
+            Window:GetLocked()
+            ```
+            
+            ### Get Unlocked Elements
+            ```luau
+            Window:Unlocked()
+            ```
+            
+            ### Get All Elements
+            ```luau
+            Window.AllElements
+            ```
+            
+            <hr/>
+            
+            ## Other
+            
+            ### Set Window Icon Size
+            ```luau
+            Window:SetIconSize(48) -- default is 20
+            ```
+        </AccordionContent>
+    </AccordionItem>
 </Accordion>
 
 <hr/>
@@ -282,6 +441,9 @@ local Window = WindUI:CreateWindow({
                 Author:                       { type: 'string',  required: false, description: 'Name of the UI author.',                               default: "nil" },
                 Folder:                       { type: 'string',  required: true,  description: 'Folder name for saving data (like keys, URL images).', default: "nil" },
                 Size:                         { type: 'UDim2',   required: false, description: 'Custom size for the window.',                          default: "UDim2.new(0,580,0,460)" },
+                MinSize:                      { type: 'Vector2', required: false, description: 'Minimum window size',                                  default: "Vector2.new(560, 350)" },
+                MaxSize:                      { type: 'Vector2', required: false, description: 'Maximal window size',                                  default: "Vector2.new(850, 560)" },
+                Acrylic:                      { type: 'boolean', required: false, description: 'Window Acrylic.',                                      default: "false" },
                 Transparent:                  { type: 'boolean', required: false, description: 'Whether the window background is transparent.',        default: "false" },
                 Theme:                        { type: 'string',  required: false, description: 'Theme style (e.g., Dark, Light).',                     default: "Dark" },
                 Resizable:                    { type: 'boolean', required: false, description: 'Can or cannot resize ui',                              default: "true" },
@@ -289,6 +451,7 @@ local Window = WindUI:CreateWindow({
                 Background:                   { type: 'string',  required: false, description: 'Background image ID.',                                 default: "nil" },
                 BackgroundImageTransparency:  { type: 'number',  required: false, description: 'Changes Background Image Transparency',                default: "0" },
                 HideSearchBar:                { type: 'boolean', required: false, description: 'Hides Searchbar',                                      default: "false" },
+                HidePanelBackground:          { type: 'boolean', required: false, description: 'Hides Panel Background',                               default: "false" },
                 ScrollBarEnabled:             { type: 'boolean', required: false, description: 'Enable ScrollBar',                                     default: "false" },
                 User:                         { type: 'table',   required: false, description: 'Settings related to the user system.',                 default: "{}" },
                 KeySystem:                    { type: 'table',   required: false, description: 'Settings for key authentication system.',              default: "{}" },
@@ -324,6 +487,7 @@ local Window = WindUI:CreateWindow({
               type={{
                 Image: { type: 'string', required: true,  description: 'Thumbnail image ID.',         default: "nil" },
                 Title: { type: 'string', required: false, description: 'Title shown with thumbnail.', default: "nil" },
+                Width: { type: 'number', required: false, description: 'Thumbnail image width',       default: "240" },
               }}
             />
         </AccordionContent>

@@ -23,9 +23,9 @@ export const baseOptions: BaseLayoutProps = {
                 >
                     <circle cx={12} cy={12} r={12} fill="currentColor" />
                 </svg> */ }
-                <p className="font-medium text-lg">WindUI</p>
+                <p className="font-semibold text-lg">WindUI</p>
                 <div className="flex flex-row items-center gap-1">
-                    <Link href="https://github.com/Footagesus/WindUI/releases/tag/1.6.41"> <Tag className="bg-[hsl(138,100%,59%)] text-[hsl(138,100%,5%)] !px-2.5 !py-1.5">v1.6.41</Tag> </Link>
+                    <Link href="https://github.com/Footagesus/WindUI/releases/tag/1.6.51"> <Tag className="bg-[hsl(138,100%,59%)] text-[hsl(138,100%,5%)] !px-2.5 !py-1.5">v1.6.51</Tag> </Link>
                     <Tag className="bg-[hsl(47,100%,59%)] text-[hsl(47,100%,5%)] !px-2.5 !py-1.5">Beta</Tag>
                 
                 </div>
