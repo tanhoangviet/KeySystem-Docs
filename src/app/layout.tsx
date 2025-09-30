@@ -5,11 +5,14 @@ import type { ReactNode } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+
 export const metadata = {
     title: 'WindUI Documentation',
     description: 'Official Documentation for the Roblox WindUI UI Library',
     icons: {
-        icon: '/favicon.ico',
+        icon: `${basePath}/favicon.ico`,
     }
 }
 
