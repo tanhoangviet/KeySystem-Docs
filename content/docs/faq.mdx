@@ -17,13 +17,13 @@ import {
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-## Answers to all questions.
+## Answers to your questions.
 
 <hr/>
 
 ##### Want to ask a question?
 <br/>
-<Link href="https://discord.gg/Q6HkNG4vwP"><Button size="sm"> <Telescope className="w-4"/> Visit our Discord server! </Button></Link>
+<Link href="https://discord.gg/ftgs-development-hub-1300692552005189632"><Button size="sm"> <Telescope className="w-4"/> Visit our Discord server! </Button></Link>
 
 <hr/>
 
@@ -76,47 +76,59 @@ import Link from 'next/link';
             <br/>
             Usually WindUI doesn't colorize custom icons to match the theme. 
             <br/>
-            But you can do it with `IconThemed`
-            
-            `IconThemed` is available in:
-            - [Window](/docs/window)
-            - [Tab](/docs/tab)
-            - [Tab Section](/docs/tabsection)
-            - [Dialog](/docs/dialog)
-            - [Popup](/docs/popup)
-            - [Notification](/docs/notification)
-            - [Paragraph](/docs/paragraph)
-            
-            For example:
-            ```luau tab="Window"
-            local Window = WindUI:CreateWindow({
-                -- ...
+            - But you can do it with `IconThemed`
                 
-                Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
-                IconThemed = true                                       -- [!code focus]
-            })
-            ```
-            
-            ```luau tab="Tab"
-            local Tab = Window:Tab({
-                -- ...
+                `IconThemed` is available in:
+                - [Window](/docs/window)
+                - [Tab](/docs/tab)
+                - [Tab Section](/docs/tabsection)
+                - [Dialog](/docs/dialog)
+                - [Popup](/docs/popup)
+                - [Notification](/docs/notification)
+                - [Paragraph](/docs/paragraph)
                 
-                Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
-                IconThemed = true                                       -- [!code focus]
-            })
-            ```
-            
-            ```luau tab="Popup"
-            local Popup = WindUI:Popup({
-                -- ...
+                For example:
+                ```luau tab="Window"
+                local Window = WindUI:CreateWindow({
+                    -- ...
+                    
+                    Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
+                    IconThemed = true                                       -- [!code focus]
+                })
+                ```
                 
-                Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
-                IconThemed = true                                       -- [!code focus]
-            })
-            
-            ```
-            
+                ```luau tab="Tab"
+                local Tab = Window:Tab({
+                    -- ...
+                    
+                    Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
+                    IconThemed = true                                       -- [!code focus]
+                })
+                ```
+                
+                ```luau tab="Popup"
+                local Popup = WindUI:Popup({
+                    -- ...
+                    
+                    Icon = "rbxassetid://..." -- my custom vector* icon        [!code focus]
+                    IconThemed = true                                       -- [!code focus]
+                })
+                
+                ```
+                
             and others.
+        </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-4">
+        <AccordionTrigger>How to disable OpenButton?</AccordionTrigger>
+        <AccordionContent>
+            You can disable the `OpenButton` if you don't need it.
+            
+            ```luau
+            Window:EditOpenButton({
+                Enabled = false
+            })
+            ```
         </AccordionContent>
     </AccordionItem>
 </Accordion>

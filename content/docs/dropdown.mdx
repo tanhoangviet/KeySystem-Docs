@@ -8,9 +8,9 @@ import { TypeTable } from 'fumadocs-ui/components/type-table';
 
 ## Creating Dropdown 
 
-### Multi Dropdown
+### Dropdown
 
-```luau
+```luau tab="Multi Dropdown"
 local Dropdown = Tab:Dropdown({
     Title = "Dropdown (Multi)",
     Values = { "Category A", "Category B", "Category C" },
@@ -18,20 +18,43 @@ local Dropdown = Tab:Dropdown({
     Multi = true,
     AllowNone = true,
     Callback = function(option) 
+        -- option is a table: { "Category A", "Category B" }
         print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
     end
 })
 ```
 
-### No multi Dropdown
-
-```luau
+```luau tab="No Multi Dropdown"
 local Dropdown = Tab:Dropdown({
-    Title = "Dropdown (Multi)",
+    Title = "Dropdown",
     Values = { "Category A", "Category B", "Category C" },
     Value = "Category A",
     Callback = function(option) 
         print("Category selected: " .. option) 
+    end
+})
+```
+
+```luau tab="Advanced Dropdown"
+local Dropdown = Tab:Dropdown({
+    Title = "Advanced Dropdown",
+    Values = {
+        {
+            Title = "Category A",
+            Icon = "bird"
+        },
+        {
+            Title = "Category B",
+            Icon = "house"
+        },
+        {
+            Title = "Category C",
+            Icon = "droplet"
+        },
+    },
+    Value = "Category A",
+    Callback = function(option) 
+        print("Category selected: " .. option.Title .. " with icon " .. option.Icon) 
     end
 })
 ```
@@ -53,7 +76,7 @@ local Dropdown = Tab:Dropdown({
         ```
     - For Multi Dropdown
         ```luau
-        Dropdown:Select({"Category B"})
+        Dropdown:Select({"Category B", "Category C"})
         ```
 
 ### Refresh Values (Update)

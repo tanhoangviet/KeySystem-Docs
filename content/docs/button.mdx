@@ -8,13 +8,26 @@ import { TypeTable } from 'fumadocs-ui/components/type-table';
 
 ## Creating Button 
 
-```luau
+```luau tab="Default"
 local Button = Tab:Button({
     Title = "Button",
     Desc = "Test Button",
     Locked = false,
     Callback = function()
-        print("clicked")
+        -- ...
+    end
+})
+```
+
+```luau tab="Advanced"
+local Button = Tab:Button({
+    Title = "Advanced Button",
+    Color = Color3.fromHex("#a2ff30"), -- paint the button
+    Justify = "Center", -- align items in the center (Center or Between or Left or Right)
+    IconAlign = "Left", -- Left or Right of the text
+    Icon = "", -- removing icon
+    Callback = function()
+        -- ...
     end
 })
 ```
@@ -65,6 +78,9 @@ import {
               type={{
                 Title:         { type: 'string',   required: true,  description: 'Title of the Button.',       default: "Button" },
                 Desc:          { type: 'string',   required: false, description: 'Description of the Button.', default: "nil" },
+                Color:         { type: 'Color3',   required: false, description: 'Button Color',               default: "nil" },
+                Justify:       { type: 'string',   required: false, description: 'Items horizontal align',     default: "Between" },
+                IconAlign:     { type: 'string',   required: false, description: 'Icon align',                 default: "Right" },
                 Locked:        { type: 'boolean',  required: false, description: 'Locks the Element',          default: "false" },
                 Callback:      { type: 'function', required: false, description: 'Callback of the Button',     default: "nil" },
               }}

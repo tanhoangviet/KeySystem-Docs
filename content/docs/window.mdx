@@ -98,150 +98,6 @@ local Window = WindUI:CreateWindow({
 
 <Accordion type="single" collapsible>
     <AccordionItem value="item-1">
-        <AccordionTrigger>Key system with your services</AccordionTrigger>
-        <AccordionContent>
-            At the moment, there are only:
-            - [PlatoBoost](https://platoboost.com)
-            - [Panda Development](https://pandadevelopment.net/)
-            - [Luarmor](https://luarmor.net/)
-            
-            More services will be soon.
-            
-            ```luau tab="Example"
-            local Window = WindUI:CreateWindow({
-                -- ...
-                
-                KeySystem = {                                                               -- [!code focus]
-                    Note = "Example Key System. With platoboost, etc.",                     -- [!code focus]
-                    API = {                                                                 -- [!code focus]
-                        { -- PlatoBoost                                                        [!code focus]
-                            --[[ Here you can write your title, description, and icon --]]  -- [!code focus]
-                            Title = "Platoboost",-- optional . you can remove it               [!code focus]
-                            Desc = "Click to copy.", -- optional . you can remove it           [!code focus]
-                            Icon = "rbxassetid://", -- optional . you can remove it            [!code focus]
-                            
-                            Type = "platoboost", -- type                                       [!code focus]
-                            ServiceId = 1234, -- service id                                    [!code focus]
-                            Secret = "platoboost-secret", -- platoboost secret                 [!code focus]
-                        },                                                                  -- [!code focus]
-                        { -- Panda development                                                 [!code focus]
-                            Type = "pandadevelopment", -- type                                 [!code focus]
-                            ServiceId = "myServiceId", -- service id                           [!code focus]
-                        },                                                                  -- [!code focus]
-                    },                                                                      -- [!code focus]
-                },                                                                          -- [!code focus]
-            })
-            ```
-            
-            ```luau tab="Platoboost"
-            local Window = WindUI:CreateWindow({
-                -- ...
-                
-                KeySystem = {                                                   -- [!code focus]
-                    Note = "Example Key System. With platoboost.",              -- [!code focus]
-                    API = {                                                     -- [!code focus]
-                        { -- PlatoBoost                                            [!code focus]
-                            Type = "platoboost",                                -- [!code focus]
-                            ServiceId = 1234, -- service id                        [!code focus]
-                            Secret = "platoboost-secret", -- platoboost secret     [!code focus]
-                        },                                                      -- [!code focus]
-                    },                                                          -- [!code focus]
-                },                                                              -- [!code focus]
-            })
-            ```
-            
-            ```luau tab="Panda development"
-            local Window = WindUI:CreateWindow({
-                -- ...
-                
-                KeySystem = {                                                   -- [!code focus]
-                    Note = "Example Key System. With pandadevelopment.",        -- [!code focus]
-                    API = {                                                     -- [!code focus]
-                        { -- pandadevelopment                                      [!code focus]
-                            Type = "pandadevelopment", -- type                     [!code focus]
-                            ServiceId = "myServiceId", -- service id               [!code focus]
-                        },                                                      -- [!code focus]
-                    },                                                          -- [!code focus]
-                },                                                              -- [!code focus]
-            })
-            ```
-            
-            ```luau tab="Luarmor"
-            local Window = WindUI:CreateWindow({
-                -- ...
-                
-                KeySystem = {                                                   -- [!code focus]
-                    Note = "Example Key System. With luarmor.",                 -- [!code focus]
-                    API = {                                                     -- [!code focus]
-                        { -- luarmor                                               [!code focus]
-                            Type = "luarmor", -- type                              [!code focus]
-                            ScriptId = 1234, -- script id                          [!code focus]
-                            Discord = "Discord URL", -- DISCORD server link        [!code focus]
-                        },                                                      -- [!code focus]
-                    },                                                          -- [!code focus]
-                },                                                              -- [!code focus]
-            })
-            ```
-            
-            ---
-            
-            ## Add your service.
-            You can also add your own services if you can't wait for the new update.
-            ```luau
-            --              ↓ Change this to your service (like `luarmor`, `platoboost`, `keyguardian`)
-            WindUI.Services.mysuperservicetogetkey = {
-                Name = "My Super Service",
-                Icon = "droplet", -- lucide or rbxassetid or raw link to img
-                
-                Args = { "ServiceId" }, --       <- \
-                --                                   |
-                New = function(ServiceId) -- <------ | Args!!!!!!!!!!!!
-                    function validateKey(key) -- <--- this too important!!!
-                        -- your function to validate key
-                        -- see examples at src/utils/
-                        
-                        if not key then
-                            return false, "Key is invalid!" 
-                            
-                        end
-                        
-                        return true, "Key is valid!" 
-                    end
-                    
-                    function copyLink()
-                        return setclipboard("link to key system service.")
-                    end
-                    
-                    return {
-                        --↓↓ do not change this!!
-                        Verify = validateKey, -- <-- important!!!
-                        Copy = copyLink -- <-- important!!!
-                    }
-                end
-            }
-            ```
-            
-            ### Use your service.
-            Now your can use your service.
-            ```luau
-            local Window = WindUI:CreateWindow({
-                -- ...
-                
-                KeySystem = {
-                    Note = "Example Key System. With your custom service.",
-                    API = {
-                        { -- custom service
-                            Type = "mysuperservicetogetkey", -- type
-                            ServiceId = 1234", -- service id
-                        },
-                    },
-                },
-            })
-            ```
-            
-        </AccordionContent>
-    </AccordionItem>
-    <AccordionItem value="item-2">
         <AccordionTrigger>Setting Window</AccordionTrigger>
         <AccordionContent>
             ### Set Background Image
@@ -272,7 +128,7 @@ local Window = WindUI:CreateWindow({
             
         </AccordionContent>
     </AccordionItem>
-    <AccordionItem value="item-3">
+    <AccordionItem value="item-2">
         <AccordionTrigger>Edit 'OpenButton' </AccordionTrigger>
         <AccordionContent>
             
@@ -298,7 +154,7 @@ local Window = WindUI:CreateWindow({
             ```
         </AccordionContent>
     </AccordionItem>
-    <AccordionItem value="item-4">
+    <AccordionItem value="item-3">
         <AccordionTrigger>Edit Topbar Buttons</AccordionTrigger>
         <AccordionContent>
             ### Disable Topbar Buttons
@@ -318,7 +174,7 @@ local Window = WindUI:CreateWindow({
             
         </AccordionContent>
     </AccordionItem>
-    <AccordionItem value="item-5">
+    <AccordionItem value="item-4">
         <AccordionTrigger>Configure User Icon</AccordionTrigger>
         <AccordionContent>
             ### Enable 
@@ -339,7 +195,7 @@ local Window = WindUI:CreateWindow({
             
         </AccordionContent>
     </AccordionItem>
-    <AccordionItem value="item-6">
+    <AccordionItem value="item-5">
         <AccordionTrigger>Other</AccordionTrigger>
         <AccordionContent>
             ## Actions
@@ -437,13 +293,14 @@ local Window = WindUI:CreateWindow({
               type={{
                 Title:                        { type: 'string',  required: true,  description: 'Title of the window.',                                 default: "UI Library" },
                 Icon:                         { type: 'string',  required: false, description: 'Lucide, rbxassetid, or URL icon for the window.',      default: "nil" },
+                IconSize:                     { type: 'number',  required: false, description: 'Icon Size.',                                           default: "20" },
                 IconThemed:                   { type: 'boolean', required: false, description: 'Makes custom icon themed',                             default: "false" },
                 Author:                       { type: 'string',  required: false, description: 'Name of the UI author.',                               default: "nil" },
                 Folder:                       { type: 'string',  required: true,  description: 'Folder name for saving data (like keys, URL images).', default: "nil" },
+                Debug:                        { type: 'boolean', required: false, description: 'Enable debug mode',                                    default: "false" },
                 Size:                         { type: 'UDim2',   required: false, description: 'Custom size for the window.',                          default: "UDim2.new(0,580,0,460)" },
                 MinSize:                      { type: 'Vector2', required: false, description: 'Minimum window size',                                  default: "Vector2.new(560, 350)" },
                 MaxSize:                      { type: 'Vector2', required: false, description: 'Maximal window size',                                  default: "Vector2.new(850, 560)" },
-                Acrylic:                      { type: 'boolean', required: false, description: 'Window Acrylic.',                                      default: "false" },
                 Transparent:                  { type: 'boolean', required: false, description: 'Whether the window background is transparent.',        default: "false" },
                 Theme:                        { type: 'string',  required: false, description: 'Theme style (e.g., Dark, Light).',                     default: "Dark" },
                 Resizable:                    { type: 'boolean', required: false, description: 'Can or cannot resize ui',                              default: "true" },
@@ -455,6 +312,7 @@ local Window = WindUI:CreateWindow({
                 ScrollBarEnabled:             { type: 'boolean', required: false, description: 'Enable ScrollBar',                                     default: "false" },
                 User:                         { type: 'table',   required: false, description: 'Settings related to the user system.',                 default: "{}" },
                 KeySystem:                    { type: 'table',   required: false, description: 'Settings for key authentication system.',              default: "{}" },
+                OpenButton:                   { type: 'table',   required: false, description: 'Editing the openbutton',                               default: "{}" },
               }}
             />
             

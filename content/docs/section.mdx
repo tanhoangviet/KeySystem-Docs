@@ -8,11 +8,21 @@ import { TypeTable } from 'fumadocs-ui/components/type-table';
 
 ## Creating Section 
 
-```luau
+```luau tab="Full example"
 local Section = Tab:Section({ 
     Title = "Section",
+    Box = false,
+    FontWeight = "SemiBold",
+    TextTransparency = 0.05,
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
+    Opened = true,
+})
+```
+
+```luau tab="Short example"
+local Section = Tab:Section({ 
+    Title = "Section",
 })
 ```
 
@@ -26,7 +36,7 @@ local Section = Tab:Section({
     Section:Destroy()
     ```
     
-Now you can create elements inside this section:
+Now you can create elements inside this section. e.g.
 ```luau tab="Button"
 Section:Button({ ... })
 ```
@@ -51,9 +61,13 @@ import {
             
             <TypeTable
               type={{
-                Title:          { type: 'string',   required: true,  description: 'Title of the Section.',     default: "Section" },
-                TextXAlignment: { type: 'string',   required: false, description: 'Text Horizontal Alignment', default: "nil" },
-                TextSize:       { type: 'number',   required: false,  description: "Text Size of the Section",  default: "nil" },
+                Title:            { type: 'string',   required: true,  description: 'Title of the Section.',     default: "Section" },
+                Box:              { type: 'boolean',  required: false, description: 'Section in the box',        default: "false" },
+                FontWeight:       { type: 'string',   required: false, description: 'Title Font Weight',         default: "SemiBold" },
+                TextTransparency: { type: 'number',   required: false, description: 'Text Transparency',         default: "0.05" },
+                TextXAlignment:   { type: 'string',   required: false, description: 'Text Horizontal Alignment', default: "nil" },
+                TextSize:         { type: 'number',   required: false, description: "Text Size of the Section",  default: "nil" },
+                Opened:           { type: 'boolean',  required: false, description: "Will the section be open",  default: "false" },
               }}
             />
             

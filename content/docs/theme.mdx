@@ -1,0 +1,45 @@
+---
+title: Themes
+description: Creating Theme and Using it
+icon: Paintbrush
+---
+
+## Creating Theme
+```luau tab="Default"
+WindUI:AddTheme({
+    Name = "My Theme", -- theme name
+    
+    Accent = Color3.fromHex("#18181b"),
+    Dialog = Color3.fromHex("#161616"),
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Background = Color3.fromHex("#101010"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa")
+})
+```
+```luau tab="With Gradients"
+WindUI:AddTheme({
+    Name = "My Theme", -- theme name
+    
+    Accent = WindUI:Gradient({                                                  -- [!code focus]
+        ["0"] = { Color = Color3.fromHex("#1f1f23"), Transparency = 0 },        -- [!code focus]
+        ["100"]   = { Color = Color3.fromHex("#18181b"), Transparency = 0 },    -- [!code focus]
+    }, {                                                                        -- [!code focus]
+        Rotation = 0,                                                           -- [!code focus]
+    }),                                                                         -- [!code focus]
+    Dialog = Color3.fromHex("#161616"),
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Background = Color3.fromHex("#101010"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa")
+})
+```
+
+### Set Theme
+```luau
+WindUI:SetTheme("My Theme")
+```

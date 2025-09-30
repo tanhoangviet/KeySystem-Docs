@@ -1,0 +1,45 @@
+---
+title: Image
+description: Creating Image
+icon: Image
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Creating Image
+
+```luau
+Tab:Image({
+    Image = "raw link or rbxassetid://",
+    AspectRatio = "16:9",
+    Radius = 9, -- optional. image corner radius
+})
+```
+
+
+<hr/>
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+<Accordion type="single"  collapsible>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>API</AccordionTrigger>
+        <AccordionContent>
+            
+            ## Image Options
+            
+            <TypeTable
+              type={{
+                Image:       { type: 'string',  required: true, description: 'rbxassetid, or URL icon for the Image.',   default: "nil" },
+                AspectRatio: { type: 'string',  required: true, description: 'Image AspectRatio',                        default: "16:9" },
+                Radius:      { type: 'number',  required: false, description: 'Image corner radius',                     default: "23 or 12" },
+              }}
+            />
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>
