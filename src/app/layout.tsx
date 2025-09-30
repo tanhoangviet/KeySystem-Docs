@@ -6,18 +6,21 @@ import type { ReactNode } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'WindUI Documentation',
-  description: 'Official Documentation for the Roblox WindUI UI Library',
+    title: 'WindUI Documentation',
+    description: 'Official Documentation for the Roblox WindUI UI Library',
+    icons: {
+        icon: '/favicon.ico',
+    }
 }
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
-        <RootProvider search={{ enabled: false }}>
-          {children}
-        </RootProvider>
-      </body>
-    </html>
-  )
+    return (
+        <html lang="en" className={inter.className} suppressHydrationWarning>
+            <body className="flex flex-col min-h-screen">
+                <RootProvider search={{ enabled: false }}>
+                    {children}
+                </RootProvider>
+            </body>
+        </html>
+    )
 }
